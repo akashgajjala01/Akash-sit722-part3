@@ -1,0 +1,32 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://kubernetes.docker.internal:6443
+  name: docker-desktop
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://sit722week07-dns-mlmwucu3.hcp.australiaeast.azmk8s.io:443
+  name: sit722week07
+contexts:
+- context:
+    cluster: docker-desktop
+    user: docker-desktop
+  name: docker-desktop
+- context:
+    cluster: sit722week07
+    user: clusterUser_deakinuni_sit722week07
+  name: sit722week07
+current-context: sit722week07
+kind: Config
+preferences: {}
+users:
+- name: clusterUser_deakinuni_sit722week07
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED
+    token: REDACTED
+- name: docker-desktop
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED
