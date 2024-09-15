@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: book-catalog
-        image: akash7.azurecr.io/book_catalog:latest
+        image: akashgajjala10/book_catalog:v1
         ports:
         - containerPort: 8000
         env:
@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
       - name: inventory-management
-        image: akash7.azurecr.io/inventory_management:latest
+        image: akashgajjala10/inventory_management:v1
         ports:
         - containerPort: 8001
         env:

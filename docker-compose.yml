@@ -1,28 +1,31 @@
-version: '3'
+version: '3.8'
+
 services:
   book_catalog:
-    image: akash7.azurecr.io/book_catalog:v1  # Explicitly using v1 tag
+    build: ./book_catalog
+    image: akashgajjala10/book_catalog:v1
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://akash_sit722_part3_user:xgiAcsKHuCikvw5efXG06cvRiMzXOn2S@dpg-crh8g32j1k6c73dt78ug-a/akash_sit722_part3
+      - DATABASE_URL=postgresql://akash722w07_user:aaJSV8dVYlqe3ar2EyLldmRRValTCnnH@dpg-crj4v1tumphs73ct0vbg-a/akash722w07
     depends_on:
-      - db
+      - postgres
 
   inventory_management:
-    image: akash7.azurecr.io/inventory_management:v1  # Explicitly using v1 tag
+    build: ./inventory_management
+    image: akashgajjala10/inventory_management:v1
     ports:
       - "8001:8001"
     environment:
-      - DATABASE_URL=postgresql://akash_sit722_part3_user:xgiAcsKHuCikvw5efXG06cvRiMzXOn2S@dpg-crh8g32j1k6c73dt78ug-a/akash_sit722_part3
+      - DATABASE_URL=postgresql://akash722w07_user:aaJSV8dVYlqe3ar2EyLldmRRValTCnnH@dpg-crj4v1tumphs73ct0vbg-a/akash722w07
     depends_on:
-      - db
+      - postgres
 
-  db:
-    image: postgres:latest
+  postgres:
+    image: postgres:13
     environment:
-      POSTGRES_USER: akash_sit722_part3_user
-      POSTGRES_PASSWORD: xgiAcsKHuCikvw5efXG06cvRiMzXOn2S
-      POSTGRES_DB: akash_sit722_part3
+      POSTGRES_USER: akash722w07_user
+      POSTGRES_PASSWORD: aaJSV8dVYlqe3ar2EyLldmRRValTCnnH
+      POSTGRES_DB: akash722w07
     ports:
       - "5432:5432"
