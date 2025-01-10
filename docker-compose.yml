@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  book_catalog:
+    build: ./book_catalog
+    image: akashgajjala10/book_catalog:v1
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://akash722w07_user:aaJSV8dVYlqe3ar2EyLldmRRValTCnnH@dpg-crj4v1tumphs73ct0vbg-a/akash722w07
+    depends_on:
+      - postgres
+
+  inventory_management:
+    build: ./inventory_management
+    image: akashgajjala10/inventory_management:v1
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql://akash722w07_user:aaJSV8dVYlqe3ar2EyLldmRRValTCnnH@dpg-crj4v1tumphs73ct0vbg-a/akash722w07
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: akash722w07_user
+      POSTGRES_PASSWORD: aaJSV8dVYlqe3ar2EyLldmRRValTCnnH
+      POSTGRES_DB: akash722w07
+    ports:
+      - "5432:5432"
